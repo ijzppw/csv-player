@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1410970100 source:/home/pio/Pulpit/csv_player/main.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<climits>
+	"main_funkcje.h"
+	"typ_dane.h"
+	"typ_data.h"
+	"typ_liczba.h"
+	"typ_tekst.h"
+
+1410970203 /home/pio/Pulpit/csv_player/main_funkcje.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+
+1410970254 /home/pio/Pulpit/csv_player/typ_dane.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+
+1410970222 /home/pio/Pulpit/csv_player/typ_data.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	"typ_dane.h"
+
+1410970242 /home/pio/Pulpit/csv_player/typ_liczba.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	"typ_dane.h"
+
+1410970254 /home/pio/Pulpit/csv_player/typ_tekst.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	"typ_dane.h"
+
+1410970113 source:/home/pio/Pulpit/csv_player/main_funkcje.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<climits>
+	"typ_data.h"
+	"typ_liczba.h"
+	"typ_tekst.h"
+	"main_funkcje.h"
+
+1410970134 source:/home/pio/Pulpit/csv_player/typ_data.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<climits>
+	"typ_data.h"
+	"main_funkcje.h"
+
+1410970154 source:/home/pio/Pulpit/csv_player/typ_liczba.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<climits>
+	"typ_liczba.h"
+	"main_funkcje.h"
+
+1410970169 source:/home/pio/Pulpit/csv_player/typ_tekst.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<climits>
+	"typ_tekst.h"
+	"main_funkcje.h"
+
