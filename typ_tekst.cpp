@@ -4,14 +4,11 @@
 #include <string>
 #include <cstdlib>
 #include <climits>
-
 #include "typ_tekst.h"
 #include "main_funkcje.h"
-
 using namespace std;
 extern vector< vector<string> > main_containter;
 extern DANE_tekst x_teksty;
-
 
 DANE_tekst::DANE_tekst()
 {
@@ -22,7 +19,6 @@ DANE_tekst::~DANE_tekst()
 {
     cout << "\nobiekt DANE_tekst zniszczony!\n";
 }
-
 
 void DANE_tekst::add_values()
 {
@@ -63,7 +59,6 @@ for (i=0; i<tekst_wartosc.size(); ++i)
         cout << endl;
     }
 }
-
 
 void DANE_tekst::html_table_data()
 {
@@ -115,5 +110,3 @@ void DANE_tekst::html_table_data()
     plik << "</table></body></html>";
     plik.close();
 }
-
-

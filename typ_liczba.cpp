@@ -3,9 +3,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-
 #include <climits>
-
 #include "typ_liczba.h"
 #include "main_funkcje.h"
 
@@ -23,19 +21,18 @@ DANE_liczba::~DANE_liczba()
     cout << "\nobiekt DANE_liczba zniszczony!\n";
 }
 
-
 void DANE_liczba::add_values()
 {
-uint32_t i,j;
+    uint32_t i,j;
 
-liczba_wartosc.resize(main_containter.size());
+    liczba_wartosc.resize(main_containter.size());
 
-for (int i=0; i<main_containter.size(); i++)
-{
-    liczba_wartosc.at(i).resize(main_containter.at(i).size());
-}
+    for (int i=0; i<main_containter.size(); i++)
+    {
+        liczba_wartosc.at(i).resize(main_containter.at(i).size());
+    }
 
-for (i=0; i<main_containter.size(); i++)
+    for (i=0; i<main_containter.size(); i++)
     {
         for (j=0; j<main_containter.at(i).size(); j++)
         {
@@ -48,8 +45,6 @@ for (i=0; i<main_containter.size(); i++)
         }
     }
 }
-
-
 
 
 void DANE_liczba::show_all_data()
@@ -67,7 +62,6 @@ for (i=0; i<liczba_wartosc.size(); ++i)
         cout << endl;
     }
 }
-
 
 
 void DANE_liczba::html_table_data()
@@ -122,3 +116,100 @@ void DANE_liczba::html_table_data()
     plik.close();
 
 }
+
+void DANE_liczba::dodaj_wartosc()
+{
+
+    uint32_t i,j;
+    float liczba;
+
+    cout<<"podaj o ile zwiekszyc wartosci liczbowe z tabeli "<<endl;
+    cin>>liczba;
+
+    for (i=0; i<liczba_wartosc.size(); ++i)
+    {
+
+        for (j=0; j<liczba_wartosc.at(i).size(); ++j)
+        {
+            cout << "  [" << i<< "]["<< j << "]  ";
+            cout << liczba_wartosc.at(i).at(j) << "\t";
+            cout<<" nowa wartosc to ";
+            cout << (liczba_wartosc.at(i).at(j))+liczba << "\t";
+        }
+        cout << endl;
+    }
+}
+void DANE_liczba::odejmij_wartosc()
+{
+
+    uint32_t i,j;
+    float liczba;
+
+    cout<<"podaj o ile zmniejszyc wartosci liczbowe z tabeli "<<endl;
+    cin>>liczba;
+
+    for (i=0; i<liczba_wartosc.size(); ++i)
+    {
+
+        for (j=0; j<liczba_wartosc.at(i).size(); ++j)
+        {
+            cout << "  [" << i<< "]["<< j << "]  ";
+            cout << liczba_wartosc.at(i).at(j) << "\t";
+            cout<<" nowa wartosc to ";
+            cout << (liczba_wartosc.at(i).at(j))-liczba << "\t";
+        }
+        cout << endl;
+    }
+}
+
+void DANE_liczba::pomnoz_przez_wartosc()
+{
+
+    uint32_t i,j;
+    float liczba;
+
+    cout<<"podaj o ile pomnozyc wartosci liczbowe z tabeli "<<endl;
+    cin>>liczba;
+
+    for (i=0; i<liczba_wartosc.size(); ++i)
+    {
+
+        for (j=0; j<liczba_wartosc.at(i).size(); ++j)
+        {
+            cout << "  [" << i<< "]["<< j << "]  ";
+            cout << liczba_wartosc.at(i).at(j) << "\t";
+            cout<<" nowa wartosc to ";
+            cout << (liczba_wartosc.at(i).at(j))*liczba << "\t";
+        }
+        cout << endl;
+    }
+}
+
+void DANE_liczba::podziel_przez_wartosc()
+{
+
+    uint32_t i,j;
+    float liczba;
+
+    cout<<"podaj przez ile podzielic wartosci liczbowe z tabeli "<<endl;
+    cin>>liczba;
+    while(liczba==0)
+    {
+        cout<<"podales 0 podaj inna liczbe wieksza od zera";
+        cin>>liczba;
+    }
+
+    for (i=0; i<liczba_wartosc.size(); ++i)
+    {
+
+        for (j=0; j<liczba_wartosc.at(i).size(); ++j)
+        {
+            cout << "  [" << i<< "]["<< j << "]  ";
+            cout << liczba_wartosc.at(i).at(j) << "\t";
+            cout<<" nowa wartosc to ";
+            cout << (liczba_wartosc.at(i).at(j))/liczba << "\t";
+        }
+        cout << endl;
+    }
+}
+

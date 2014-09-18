@@ -4,21 +4,17 @@
 #include <string>
 #include <cstdlib>
 #include <climits>
-
 #include "typ_data.h"
 #include "typ_liczba.h"
 #include "typ_tekst.h"
-
 #include "main_funkcje.h"
-
-
 using namespace std;
+
 
 extern vector< vector<string> > main_containter;
 extern DANE_data x_daty;
 extern DANE_liczba x_liczby;
 extern DANE_tekst x_teksty;
-
 
 void read_file()
 {
@@ -44,11 +40,8 @@ void read_file()
         }
     }
 plik.close();
-
 classes_add_values();
-
 }
-
 
 vector<string> cut_line(string linia)
 {
@@ -72,9 +65,8 @@ vector<string> cut_line(string linia)
 return tymczasowy1;
 }
 
-
-
 string czy_data(string s)
+
 {
     //cout << "czy_data:  " << s << endl;
     unsigned short dl = s.length();
@@ -92,7 +84,6 @@ string czy_data(string s)
     {
         return "nie_data";
     }
-
     int rok = atoi(s.substr(0,4).c_str());
     unsigned short miesiac = atoi(s.substr(5,2).c_str());
     unsigned short dzien = atoi(s.substr(8,2).c_str());
@@ -117,7 +108,6 @@ string czy_data(string s)
     {
         return "data";
     }
-
 return "nie_data";
 }
 
@@ -170,8 +160,6 @@ string czy_liczba(string s)
 return "liczba";
 }
 
-
-
 string parse_item(string s)
 {
     if(czy_data(s) == "data") return "...data";
@@ -179,7 +167,6 @@ string parse_item(string s)
 
     return "...tekst";
 }
-
 
 void show_all()
 {
@@ -195,8 +182,6 @@ for (i=0; i<main_containter.size(); ++i)
     cout << endl;
     }
 }
-
-
 
 void html_table()
 {
@@ -214,11 +199,8 @@ for (i=0; i<main_containter.size(); ++i)
             if (j > y) y=j;
         }
     }
-
     plik << "<html><head></head><body>";
     plik << "<br/>PROJEKT CSV<br/><br/>";
-
-
     plik<<"<table rules=\"all\" style=\"width:100%; border-spacing:10px; background-color:#F0F0F0; border:1 px solid\">";
 
 if(x==0 )
@@ -272,22 +254,19 @@ else
 
     plik << "</table><br/></body></html>";
     plik.close();
-
 }
 
 void menu1()
 {
-cout << "MENU:\n";
-cout << "1. ** wczytaj plik: \n";
-cout << "2. ** wyswietl wczytane dane\n";
-cout << "3. ** generowanie tabeli html\n";
-cout << "4. ** sprawdz format danych\n";
-cout << "5. ** dodaj wartosci do poszczegolnych klas\n";
-
-cout <<"\n\n";
-return;
+    cout << "MENU:\n";
+    cout << "1. ** wczytaj plik: \n";
+    cout << "2. ** wyswietl wczytane dane\n";
+    cout << "3. ** generowanie tabeli html\n";
+    cout << "4. ** sprawdz format danych\n";
+    cout << "5. ** dodaj wartosci do poszczegolnych klas\n";
+    cout <<"\n\n";
+    return;
 }
-
 //void dodatkowe_opcje()
 //{
 //string a[10];
@@ -306,25 +285,64 @@ return;
 //return;
 //}
 
-
-
 void dodatkowe_opcje()
 {
-cout << "MENU - LICZBY:\n";
-cout << "1. ** dodawanie\n";
-cout << "2. ** odejmowanie\n";
-cout << "3. ** mnozenie\n";
-cout << "4. ** dzielenie\n";
-cout << "5. ** WYJSCIE \n";
+    char wybor;
+
+    while (wybor != '6')
+    {
+        cout << "MENU - LICZBY:\n";
+        cout << "1. ** dodawanie\n";
+        cout << "2. ** odejmowanie\n";
+        cout << "3. ** mnozenie\n";
+        cout << "4. ** dzielenie\n";
+        cout << "5. ** powrot do menu\n";
+        cout << "6. ** WYJSCIE \n + powrot do glownego menu ";
+        cin>>wybor;
 
 
-
-
+        switch(wybor)
+        {
+        case '1':
+            cout <<"\nwybrana opcja: 1 -  dodawanie "<<endl;
+            system("clear");
+            x_liczby.dodaj_wartosc();
+            cout << "\nok\n";
+            break;
+        case '2':
+            cout <<"\nwybrana opcja: 2 -  odejmowanie "<<endl;
+            system("clear");
+            x_liczby.odejmij_wartosc();
+            cout << "\nok\n";
+            break;
+        case '3':
+            cout <<"\nwybrana opcja: 3 -  mnozenie "<<endl;
+            system("clear");
+            x_liczby.pomnoz_przez_wartosc();
+            cout << "\nok\n";
+            break;
+        case '4':
+            cout <<"\nwybrana opcja: 4 -  dzielenie "<<endl;
+            system("clear");
+            x_liczby.podziel_przez_wartosc();
+            cout << "\nok\n";
+            break;
+        case '5':
+            cout <<"\nwybrana opcja: 5 -  powrot do menu\n "<<endl;
+            system("clear");
+            dodatkowe_opcje();
+            cout << "\nok\n";
+            break;
+        case '6':
+            cout <<"\nwybrana opcja: 6 -  powrot do glownego menu\n "<<endl;
+            system("clear");
+            menu1();
+            cout << "\nok\n";
+            break;
+        }
+    }
 
 }
-
-
-
 
 
 void format_dane()
@@ -338,13 +356,10 @@ void format_dane()
 
 void main_check()
 {
-
-cout << main_containter.at(0).at(0) << endl;
-cout << main_containter.at(0).at(1) << endl;
-cout << main_containter.at(0).at(2) << endl;
-
+    cout << main_containter.at(0).at(0) << endl;
+    cout << main_containter.at(0).at(1) << endl;
+    cout << main_containter.at(0).at(2) << endl;
 }
-
 
 void classes_add_values()
 {
@@ -365,6 +380,5 @@ void classes_add_values()
     x_teksty.add_values();
     x_teksty.show_all_data();
     x_teksty.html_table_data();
-
-return;
+    return;
 }

@@ -108,4 +108,3 @@ cout << "PROJEKT CSV  v1.0\n\n";
     }
 return 0;
 }
-

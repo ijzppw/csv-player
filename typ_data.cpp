@@ -4,10 +4,8 @@
 #include <string>
 #include <cstdlib>
 #include <climits>
-
 #include "typ_data.h"
 #include "main_funkcje.h"
-
 using namespace std;
 extern vector< vector<string> > main_containter;
 extern DANE_data x_daty;
@@ -22,19 +20,18 @@ DANE_data::~DANE_data()
     cout << "\nobiekt DANE_data zniszczony!\n";
 }
 
-
 void DANE_data::add_values()
 {
-uint32_t i,j;
+    uint32_t i,j;
 
-data_wartosc.resize(main_containter.size());
+    data_wartosc.resize(main_containter.size());
 
-for (int i=0; i<main_containter.size(); i++)
-{
-    data_wartosc.at(i).resize(main_containter.at(i).size());
-}
+    for (int i=0; i<main_containter.size(); i++)
+    {
+        data_wartosc.at(i).resize(main_containter.at(i).size());
+    }
 
-for (i=0; i<main_containter.size(); i++)
+    for (i=0; i<main_containter.size(); i++)
     {
         for (j=0; j<main_containter.at(i).size(); j++)
         {
@@ -47,31 +44,25 @@ for (i=0; i<main_containter.size(); i++)
     }
 }
 
-
-
 void DANE_data::show_all_data()
 {
     uint32_t i,j;
 
     for (i=0; i<data_wartosc.size(); ++i)
+    {
+        for (j=0; j<data_wartosc.at(i).size(); ++j)
         {
-
-            for (j=0; j<data_wartosc.at(i).size(); ++j)
-            {
-               cout << "  [" << i<< "]["<< j << "] ";
-               cout << data_wartosc.at(i).at(j) << "\t";
-            }
-            cout << endl;
+            cout << "  [" << i<< "]["<< j << "] ";
+            cout << data_wartosc.at(i).at(j) << "\t";
         }
+        cout << endl;
     }
-
+}
 
     void DANE_data::html_table_data()
     {
     fstream plik;
     plik.open("table_daty.html", ios::out);// otwieramy plik;
-
-
     uint32_t i,j;
     uint32_t x=data_wartosc.size()-1 ,y=0;
 
@@ -82,13 +73,9 @@ void DANE_data::show_all_data()
                 if (j > y) y=j;
             }
         }
-
         plik << "<html><head></head><body>";
         plik << "<br/>PROJEKT CSV - daty<br/><br/>";
-
-
         plik<<"<table rules=\"all\" style=\"width:100%; border-spacing:10px; background-color:#F0F0F0; border: 1px solid black;\">";
-
     if(x==0 )
     {
       plik << "<tr><td>brak danych do wyswietlenia!</td></tr>";
@@ -113,8 +100,6 @@ void DANE_data::show_all_data()
             plik << "</tr>";
         }
     }
-
         plik << "</table></body></html>";
         plik.close();
 }
-
